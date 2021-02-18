@@ -5,11 +5,12 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity()
+@Entity
 @Data
-public class User {
+public class Test_user {
     @Id
-    private Integer ID;
-    private String username;
+    private Integer USER_ID;
+    private String USER_NAME;
+    private String USER_PASSWORD;
 
 }
