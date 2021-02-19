@@ -3,9 +3,10 @@ package com.dusword.controller;
 import com.dusword.entity.Test_user;
 import com.dusword.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +16,9 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/findAll")
-    public List<Test_user> findAll(){
-        return userRepository.findAll();
+    @GetMapping("/findAll/{page}/{size}")
+    public Page<Test_user> findAll(@PathVariable("page")Integer page, @PathVariable("size") Integer size){
+        Pageable pageable= PageRequest.of(page-1,size);
+        return userRepository.findAll(pageable);
     }
 }
