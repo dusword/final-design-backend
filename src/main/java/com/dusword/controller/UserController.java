@@ -21,4 +21,8 @@ public class UserController {
         Pageable pageable= PageRequest.of(page-1,size);
         return userRepository.findAll(pageable);
     }
+    @PostMapping("/saveUser")
+    public Test_user saveUser(@RequestBody Test_user user){
+        return userRepository.save(user);
+    }
 }
