@@ -10,8 +10,8 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-//    @Column(name = "ErrMsg")
-    private String errmsg;
+    @Column(name = "errmsg")
+    private String ErrMsg;
 //    @Column(name = "ErrCode")
     private Integer errcode;
 //    @Column(name = "TotalRowNum")

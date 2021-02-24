@@ -22,7 +22,7 @@ public class ResultController {
     @PostMapping("/saveResult")
     public Result saveResult(@RequestBody JSONObject json) {
         Result res=new Result();
-        res.setErrmsg(json.getString("errmsg"));
+        res.setErrMsg(json.getString("errmsg"));
         res.setErrcode(json.getInteger("errcode"));
         JSONObject result=json.getJSONObject("result");
         JSONObject rsppageinfo=result.getJSONObject("rsppageinfo");
