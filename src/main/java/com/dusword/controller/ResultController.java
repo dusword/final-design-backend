@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.SocketHandler;
 
 @RestController
 @RequestMapping("/result")
@@ -52,9 +53,10 @@ public class ResultController {
         res.setDevencodeset(infolist.getInteger("devencodeset"));
         res.setVoicestatus(infolist.getInteger("voicestatus"));
         res.setSubtypeofsubtype(infolist.getInteger("subtypeofsubtype"));
-
-        return json.getJSONObject("result").getJSONObject("infolist").toJavaObject(Result.class);
-//        return resultRepository.save(res);
+        System.out.println(json.toJavaObject(Result.class));
+        System.out.println(json.getJSONObject("result").getJSONObject("infolist").toJavaObject(Result.class));
+        System.out.println(json.getJSONObject("result").getJSONObject("rsppageinfo").toJavaObject(Result.class));
+        return resultRepository.save(res);
     }
 
     @GetMapping("/findAll")
