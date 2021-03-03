@@ -18,6 +18,7 @@ import java.util.List;
 public class ResultController {
     @Autowired
     private ResultRepository resultRepository;
+    private Result result;
 
     @PostMapping("/saveResult")
     public Result saveResult(@RequestBody JSONObject json) {
@@ -52,8 +53,8 @@ public class ResultController {
         res.setVoicestatus(infolist.getInteger("voicestatus"));
         res.setSubtypeofsubtype(infolist.getInteger("subtypeofsubtype"));
 
-
-        return resultRepository.save(res);
+        return json.getJSONObject("result").getJSONObject("infolist").toJavaObject(Result.class);
+//        return resultRepository.save(res);
     }
 
     @GetMapping("/findAll")
