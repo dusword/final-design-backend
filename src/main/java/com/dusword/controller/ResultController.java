@@ -7,6 +7,7 @@ import com.dusword.entity.Result;
 import com.dusword.entity.Test_user;
 import com.dusword.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,15 +22,16 @@ public class ResultController {
     @Autowired
     private ResultRepository resultRepository;
     private Result result;
+    @Autowired
     private JsonService jsonService;
 
     @PostMapping("/saveResult")
     public Result saveResult(@RequestBody JSONObject json) {
-
+        Result result=jsonService.jsonToResult(json);
 //        System.out.println(json.toJavaObject(Result.class));
 //        System.out.println(json.getJSONObject("result").getJSONObject("infolist").toJavaObject(Result.class));
 //        System.out.println(json.getJSONObject("result").getJSONObject("rsppageinfo").toJavaObject(Result.class));
-        return resultRepository.save(jsonService.jsonToResult(json));
+        return resultRepository.save(result);
     }
 
     @GetMapping("/findAll")

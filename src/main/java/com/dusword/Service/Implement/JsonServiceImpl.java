@@ -4,9 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dusword.Service.JsonService;
 import com.dusword.entity.Result;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-
-public class JsonToResultImpl implements JsonService {
+@Service
+public class JsonServiceImpl implements JsonService {
     /**
      * @author lxj
      * @param json a JSON from Vue
