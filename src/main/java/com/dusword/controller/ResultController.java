@@ -28,9 +28,6 @@ public class ResultController {
     @PostMapping("/saveResult")
     public Result saveResult(@RequestBody JSONObject json) {
         Result result=jsonService.jsonToResult(json);
-//        System.out.println(json.toJavaObject(Result.class));
-//        System.out.println(json.getJSONObject("result").getJSONObject("infolist").toJavaObject(Result.class));
-//        System.out.println(json.getJSONObject("result").getJSONObject("rsppageinfo").toJavaObject(Result.class));
         return resultRepository.save(result);
     }
 
