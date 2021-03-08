@@ -1,20 +1,15 @@
 package com.dusword.controller;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.dusword.Mapper.ResultMapper;
 import com.dusword.Service.JsonService;
 import com.dusword.entity.Result;
-import com.dusword.entity.Test_user;
 import com.dusword.repository.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.SocketHandler;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/result")
@@ -22,6 +17,8 @@ public class ResultController {
     @Autowired
     private ResultRepository resultRepository;
     private Result result;
+    @Autowired
+    private ResultMapper resultMapper;
     @Autowired
     private JsonService jsonService;
 
@@ -34,5 +31,20 @@ public class ResultController {
     @GetMapping("/findAll")
     public List<Result> findAll(){
         return resultRepository.findAll();
+    }
+
+    @GetMapping("/findById/{id}")
+    public Optional<Result> findById(@PathVariable("id") Integer id){
+        return  resultRepository.findById(id);
+    }
+
+    @GetMapping("/selectAll")
+    public List<Result> selectAll(){
+        return resultMapper.selectList(null);
+    }
+
+    @RequestMapping("/selectById")
+    public Result selectById(Integer id){
+        return resultMapper.selectById(id);
     }
 }

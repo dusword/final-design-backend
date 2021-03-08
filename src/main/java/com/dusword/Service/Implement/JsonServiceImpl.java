@@ -17,7 +17,7 @@ public class JsonServiceImpl implements JsonService {
     @Override
     public Result jsonToResult(JSONObject json) {
         Result res=new Result();
-        res.setErrMsg(json.getString("errmsg"));
+        res.setErrmsg(json.getString("errmsg"));
         res.setErrcode(json.getInteger("errcode"));
         JSONObject result=json.getJSONObject("result");
         JSONObject rsppageinfo=result.getJSONObject("rsppageinfo");
