@@ -38,13 +38,17 @@ public class ResultController {
         return  resultRepository.findById(id);
     }
 
-    @GetMapping("/selectAll")
-    public List<Result> selectAll(){
-        return resultMapper.selectList(null);
-    }
-
-    @RequestMapping("/selectById")
-    public Result selectById(Integer id){
-        return resultMapper.selectById(id);
-    }
+//    @GetMapping("/selectAll")
+//    public List<Result> selectAll(){
+//        return resultMapper.selectList(null);
+//    }
+//
+//    @GetMapping("/selectById")
+//    public Result selectById(@RequestBody JSONObject jsonObject){
+//        return resultMapper.selectById(jsonObject.getInteger("Id"));
+//    }
+//    @GetMapping("/selectById")
+//    public Result selectById(@RequestParam() int id) {
+//        return resultMapper.selectById(id);
+//    }
 }
