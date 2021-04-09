@@ -38,10 +38,10 @@ public class ResultController {
         return  resultRepository.findById(id);
     }
 
-//    @GetMapping("/selectAll")
-//    public List<Result> selectAll(){
-//        return resultMapper.selectList(null);
-//    }
+    @GetMapping("/selectAll")
+    public List<Result> selectAll(){
+        return resultMapper.selectList(null);
+    }
 //
 //    @GetMapping("/selectById")
 //    public Result selectById(@RequestBody JSONObject jsonObject){
